@@ -4,6 +4,7 @@ const sidebarToggler = document.querySelector(".sidebar-toggler");
 const menuToggler = document.querySelector(".menu-toggler");
 const navLinks = document.querySelectorAll(".nav-link");
 const collapsedSidebarHeight = "56px";
+const maincontainer = document.getElementsByClassName(".main-container");
 
 // Sidebar toggling
 sidebarToggler.addEventListener("click", () => {
@@ -16,7 +17,12 @@ const toggleMenu = (isMenuActive) => {
     sidebar.style.height = isMenuActive 
         ? `${sidebar.scrollHeight}px` 
         : collapsedSidebarHeight;
-     menuToggler.querySelector("span").innerText = isMenuActive ? "close" :
+
+
+    maincontainer.style.setProperty('width', isMenuActive ? 'calc(100% - 316px)' : 'calc(100% - 200px)', 'important');
+
+
+    menuToggler.querySelector("span").innerText = isMenuActive ? "close" :
      "menu"   
 };
 
